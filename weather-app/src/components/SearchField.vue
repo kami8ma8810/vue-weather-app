@@ -1,6 +1,8 @@
 <script setup>
 import { reactive } from 'vue'
 
+const emit = defineEmits(['place-data'])
+
 const searchTerm = reactive({
   query: '',
   timeout: null,
@@ -26,6 +28,10 @@ const getWeather = async (id) => {
   )
   const data = await res.json()
   console.log(data)
+  emit('place-data', data)
+
+  searchTerm.query = ''
+  searchTerm.results = null
 }
 </script>
 
