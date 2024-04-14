@@ -26,12 +26,12 @@ const clickHandler = () => {
     class="text-white p-4 md:p-8 rounded-lg shadow-lg gap-4 mb-4 relative overflow-hidden"
   >
     <!-- Location & time -->
-    <div class="mb-2 flex justify-between items-center">
+    <div class="mb-2 flex justify-between items-start gap-2">
       <div class="flex items-center justify-center gap-2">
-        <i class="fa-solid fa-location-dot"></i>
+        <i class="fa-solid fa-location-dot mr-2"></i>
         <h1 class="text-xl md:text-3xl">{{ place.location.name }}</h1>
       </div>
-      <div class="flex items-center justify-center gap-2">
+      <div class="flex items-center justify-center gap-2 flex-none">
         <i class="fa-solid fa-clock mr-2"></i>
         <h1 class="text-xl md:text-3xl">
           {{ new Date(place.location.localtime).getHours().toString().padStart(2, '0') }} :
