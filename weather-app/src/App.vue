@@ -30,7 +30,7 @@ const deletePlace = (name) =>{
       <SearchField @place-data="addPlace"/>
     </div>
     <!-- Weather Cards -->
-    <div class="grid grid-cols-2 gap-4">
+    <div class="grid grid-cols-2 gap-4 mt-8">
       <div v-for="(place,index) in places" :key="index">
         <WeatherCard :place="place" @delete-place="deletePlace"/>
       </div>
