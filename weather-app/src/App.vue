@@ -1,5 +1,5 @@
 <script setup>
-import {ref } from 'vue'
+import { ref } from 'vue'
 import SearchField from './components/SearchField.vue'
 import WeatherCard from './components/WeatherCard.vue'
 
@@ -9,8 +9,10 @@ const addPlace = (data) => {
   places.value.push(data)
 }
 
-const deletePlace = (name) =>{
-  places.value = places.value.filter(place => place.location.name !== name)
+const deletePlace = (name) => {
+  if (confirm('Are you sure you want to delete this location?')) {
+    places.value = places.value.filter((place) => place.location.name !== name)
+  }
 }
 </script>
 
@@ -27,12 +29,12 @@ const deletePlace = (name) =>{
     </div>
     <!-- Search -->
     <div>
-      <SearchField @place-data="addPlace"/>
+      <SearchField @place-data="addPlace" />
     </div>
     <!-- Weather Cards -->
     <div class="grid grid-cols-2 gap-4 mt-8">
-      <div v-for="(place,index) in places" :key="index">
-        <WeatherCard :place="place" @delete-place="deletePlace"/>
+      <div v-for="(place, index) in places" :key="index">
+        <WeatherCard :place="place" @delete-place="deletePlace" />
       </div>
     </div>
   </main>
