@@ -20,13 +20,13 @@ defineProps({
       <div class="text-center flex-1">
         <i class="fa-solid fa-wind mb text-2xl"></i>
         <p class="text-xl font-bold">{{ place.current.wind_kph }}</p>
-        <p>wind</p>
+        <p>Wind</p>
       </div>
       <!-- Humidity level -->
       <div class="text-center flex-1">
         <i class="fa-solid fa-droplet mb text-2xl"></i>
         <p class="text-xl font-bold">{{ place.current.humidity }}</p>
-        <p>humidity</p>
+        <p>Humidity</p>
       </div>
       <!-- Precipitation -->
       <div class="text-center flex-1">
@@ -40,7 +40,7 @@ defineProps({
       <div class="text-center flex-1">
         <i class="fa-solid fa-fan mb text-2xl"></i>
         <p class="text-xl font-bold">{{ place.current.wind_dir }}</p>
-        <p>direction</p>
+        <p>Direction</p>
       </div>
       <!-- Feels like -->
       <div class="text-center flex-1">
@@ -57,7 +57,7 @@ defineProps({
     </div>
     <!-- Last update and delete -->
     <div class="flex justify-between items-center">
-      <h3 class="text-slate-900/50">last update: {{ place.current.last_updated }}</h3>
+      <h3 class="text-slate-900/50">Last update: {{ place.current.last_updated }}</h3>
       <button @click="$emit('remove-place')">
         <i class="fa-solid fa-trash"></i>
       </button>
