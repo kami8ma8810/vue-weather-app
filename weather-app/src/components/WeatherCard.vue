@@ -1,8 +1,22 @@
 <script setup>
+import { ref } from 'vue'
+import WeatherForecastDay from './WeatherForecastDay.vue'
+import WeatherInfo from './WeatherInfo.vue'
 import BorderLine from './BorderLine.vue'
 defineProps({
   place: Object
 })
+
+const emit = defineEmits(['delete-place'])
+const showDetail = ref(false)
+
+const removePlace= (placeName) => {
+  emit('delete-place', placeName)
+  showDetail.value = !showDetail.value
+}
+const clickHandler = () => {
+  showDetail.value = !showDetail.value
+}
 </script>
 
 <template>
@@ -29,18 +43,29 @@ defineProps({
     <BorderLine />
 
     <!-- forecast -->
-    <div>
-      <!-- Weather daily forecast component goes here -->
+    <div v-for="(day,index) in place.forecast.forecastday" :key="index">
+      <WeatherForecastDay :day="day"/>
     </div>
 
     <!-- info -->
-    <div>
-      <!-- Weather info component goes here -->
-    </div>
+    <Transition name="fade">
+      <div v-show="showDetail">
+        <WeatherInfo :place="place" @close-info="clickHandler" @remove-place="removePlace(place.location.name)"/>
+      </div>
+    </Transition>
 
     <!-- forecast btn -->
     <div class="flex justify-end items-center gap-1 mt-10">
-      <button>More <i class="fa-solid fa-arrow-right text-sm -mb-px"></i></button>
+      <button @click="clickHandler">More <i class="fa-solid fa-arrow-right text-sm -mb-px"></i></button>
     </div>
   </div>
 </template>
+
+<style scoped>
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.2s ease-out;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
+</style>

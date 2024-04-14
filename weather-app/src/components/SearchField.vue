@@ -19,7 +19,7 @@ const handleSearch = () => {
     )
     const data = await res.json()
     searchTerm.results = data
-    console.log(searchTerm.results)
+    // console.log(searchTerm.results)
   }, 500)
 }
 const getWeather = async (id) => {
@@ -27,7 +27,7 @@ const getWeather = async (id) => {
     `http://api.weatherapi.com/v1/forecast.json?key=079ef26b3b8846e3849131124243103&q=id:${id}&days=3&aqi=no&alerts=no`
   )
   const data = await res.json()
-  console.log(data)
+  // console.log(data)
   emit('place-data', data)
 
   searchTerm.query = ''

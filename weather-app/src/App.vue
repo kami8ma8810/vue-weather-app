@@ -8,6 +8,10 @@ const places = ref([])
 const addPlace = (data) => {
   places.value.push(data)
 }
+
+const deletePlace = (name) =>{
+  places.value = places.value.filter(place => place.location.name !== name)
+}
 </script>
 
 <template>
@@ -28,7 +32,7 @@ const addPlace = (data) => {
     <!-- Weather Cards -->
     <div class="grid grid-cols-2 gap-4">
       <div v-for="(place,index) in places" :key="index">
-        <WeatherCard :place="place" />
+        <WeatherCard :place="place" @delete-place="deletePlace"/>
       </div>
     </div>
   </main>
