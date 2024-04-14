@@ -18,6 +18,11 @@ const deletePlace = (name) => {
 
 <template>
   <main>
+    <div class="flex items-baseline justify-center gap-4 mb-8">
+      <i class="fa-solid fa-dog text-2xl"></i>
+      <h1 class="text-center text-2xl md:text-4xl">ワンニャン Weather</h1>
+      <i class="fa-solid fa-cat text-2xl icon-cat"></i>
+    </div>
     <!-- Date -->
     <div class="text-center mb-6">
       {{
@@ -39,3 +44,9 @@ const deletePlace = (name) => {
     </div>
   </main>
 </template>
+
+<style scoled>
+.icon-cat{
+  transform: rotateY(180deg);
+}
+</style>

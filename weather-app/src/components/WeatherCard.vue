@@ -4,7 +4,7 @@ import WeatherForecastDay from './WeatherForecastDay.vue'
 import WeatherInfo from './WeatherInfo.vue'
 import BorderLine from './BorderLine.vue'
 
-const props = defineProps({
+defineProps({
   place: Object
 })
 
